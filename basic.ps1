@@ -40,7 +40,7 @@ Get-LocalUser
 
 /* user/group */
 function remGroup($group, $user) {
-	/* cette fonction supprime un utilisateur d'un groupe */
+	/* cette fonction supprime un utilisateur à un groupe */
 	Remove-LocalGroupMember -Group $group -Member $user
 }
 
@@ -118,7 +118,7 @@ icacls "c:\projet1" /grant "projet1_rw:(OI)(CI)M"
 icacls "c:\projet1" /grant "projet1_r:(OI)(CI)RX"
 # /grant "projet1_r:(OI)(CI)RX" => RX: read et execution à group projet1_r
 
-/* domain/ work group*/
+/* domain or  work group*/
 $systemInfo = Get-WmiObject -Class Win32_ComputerSystem
 $domainStatus = $systemInfo.Domain
 $workgroupStatus = $systemInfo.Workgroup
